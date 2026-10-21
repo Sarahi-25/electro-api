@@ -10,6 +10,8 @@ services:
       - key: NODE_ENV
         value: production
       - key: DATABASE_URL
-        sync: false
+        fromDatabase:
+          name: tienda-sara
+          property: connectionString
       - key: API_KEY
         generateValue: true
