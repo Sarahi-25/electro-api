@@ -1,6 +1,6 @@
 # API de productos electrónicos
 
-API REST local con Node.js, Express y PostgreSQL. Incluye 12 productos iniciales.
+API REST con Node.js, Express y PostgreSQL. Incluye 12 productos iniciales.
 
 ## Requisitos
 
@@ -14,7 +14,7 @@ API REST local con Node.js, Express y PostgreSQL. Incluye 12 productos iniciales
 3. Inicializa el esquema y los productos: `npm run db:init`.
 4. Inicia la API: `npm run dev`.
 
-La API escucha en `http://localhost:3000`.
+La API escucha en `http://localhost:3000`. Los productos viven en el esquema `electro_api`.
 
 ## Rutas
 
@@ -29,4 +29,4 @@ En producción, POST, PUT y DELETE requieren `Authorization: Bearer <API_KEY>`.
 
 ## Render
 
-El archivo `render.yaml` define el servicio y PostgreSQL. Render genera `API_KEY` y la tabla se inicializa al arrancar. La base gratuita de Render vence a los 30 días; actualízala a un plan de pago antes del vencimiento si quieres conservarla.
+El archivo `render.yaml` define un servicio web gratuito y lo conecta a la base PostgreSQL existente `tienda-sara`. La inicialización crea el esquema aislado `electro_api`, sin cambiar tablas de otros proyectos. Render genera `API_KEY` automáticamente. La base gratuita vence el 5 de noviembre de 2026 y se eliminará si no se actualiza a un plan de pago antes de esa fecha.
