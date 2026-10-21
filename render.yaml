@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: electro-api
+    runtime: node
+    plan: free
+    buildCommand: npm ci
+    startCommand: npm run db:init && npm start
+    healthCheckPath: /health
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DATABASE_URL
+        fromDatabase:
+          name: electro-api-db
+          property: connectionString
+      - key: API_KEY
+        generateValue: true
+
+databases:
+  - name: electro-api-db
+    databaseName: electro_api
+    user: electro_api
+    plan: free
+    postgresMajorVersion: "16"
